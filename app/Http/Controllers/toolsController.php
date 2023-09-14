@@ -51,14 +51,14 @@ class toolsController extends Controller
         $input = [ 'name' => $request->name, ];
 
         if ($files = $request->file('image')) {
-            //delete file lama
-            \File::delete('public/image/'.$request->hidden_image);
+
+            // \File::delete('public/image/'.$request->hidden_image);
             
             $destinationPath = 'public/image/'; //menentukan destinasi file
-            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension(); 
-            $files->move($destinationPath, $profileImage);
+            $fileFoto = time() . "." . $files->getClientOriginalExtension(); //buat hash name dari images
+            $files->move($destinationPath, $fileFoto); //php artisan storage:link
 
-            $input['image'] = "$profileImage";
+            $input['image'] = "$fileFoto";
 
         }
 

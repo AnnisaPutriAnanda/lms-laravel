@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-                  <!-- Google Font: Source Sans Pro -->
+        <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ asset('/') }}plugins/fontawesome-free/css/all.min.css">
@@ -24,6 +24,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script id="JS"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
@@ -294,7 +295,6 @@ $(document).ready(function(data){
               
 $('#tool').click(function(){
 
-$('#createButton').html('<button class="btn btn-success plus float-right createTool">Create Tools</button>');
 var table = $('#myTable').DataTable({
 destroy : true,
 processing : true,
@@ -320,29 +320,37 @@ type : "get",
         
 }); //the end of the tool table
 
+                $('body').on('click', 'createTool', function(){
+                $('#modal_tool').modal('show');
+                $('#exampleModalLabelTool').html('Modal Create Tool');
+
+                }); //the end of modal create tool
 
 
-              (function($){
-                 $(document).on('ajaxError', function(event, xhr) {
-                 if (xhr.status === 401 || xhr.status === 405) {
-                    window.location.reload();
-                }
-              });
-                 })(jQuery); //to handle the 403 error
+
+            //   (function($){
+            //      $(document).on('ajaxError', function(event, xhr) {
+            //      if (xhr.status === 401 || xhr.status === 405) {
+            //         window.location.reload();
+            //     }
+            //   });
+            //      })(jQuery); //to handle the 403 error
 
 
 //conditional script load
 
-//     var script = document.getElementsByTagName('script')[0];
+//     var script = document.getElementsByTagName('head')[0];
     
 //     var page = $(".nav ul li a").click(function(e){
 //     e.preventDefault();
 //     var sectionID = this.getAttribute("id");
 
 //    if(sectionID == 'job'){
-
+    
+//        document.getElementById("JS").remove();
 //        console.log('page = job');
 //        var js = document.createElement("script");
+//        js.id = 'JS';
 //        js.type = "text/javascript";
 //        js.src = '{{ asset("job.js") }}';
 //        js.async = false;
@@ -351,8 +359,10 @@ type : "get",
 
 //   }else if(sectionID == 'personal_goal'){
 
+//      document.getElementById("JS").remove();
 //      console.log('page = goal');
 //      var js = document.createElement("script");
+//      js.id = 'JS';
 //      js.type = "text/javascript";
 //      js.src = '{{ asset("goal.js") }}';
 //      js.async = false;
@@ -361,8 +371,10 @@ type : "get",
 
 //   }else if(sectionID == 'tool'){
 
+//      document.getElementById("JS").remove();
 //      console.log('page = tool');
 //      var js = document.createElement("script");
+//      js.id = 'JS';
 //      js.type = "text/javascript";
 //      js.src = '{{ asset("tools.js") }}';
 //      js.async = false;

@@ -3,7 +3,7 @@
 @include('Template.Navbar')
 
 <div class="content-wrapper">
-
+{{-- form job --}}
   <div class="modal fade" id="Modal_edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelEdit" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -37,8 +37,7 @@
 
 
 
-
-
+{{-- form goal --}}
   <div class="modal fade" id="Modal_create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelCreate" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -71,6 +70,27 @@
   </div>
 
 
+<!-- Modal tool-->
+<div class="modal fade" id="modal_tool" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelTool" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabelTool">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -85,14 +105,11 @@
                     <table id="myTable" class="display table table-bordered" style="width:100%">
                       <thead>
                         <tr>
-                          {{-- <th >No</th>
-                          <th >ID</th>
+                           <th >No</th>
                           <th >Name</th>
                           <th >Created</th>
-                          <th >Updated</th> --}}
-                          {{-- @method('DELETE')
-                          @csrf
-                          <th >Action</th> --}}
+                          <th >Updated</th>
+                          <th >Action</th>
                         </tr>
                       </thead>
                     </table>
